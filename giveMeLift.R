@@ -25,7 +25,7 @@ liftMe <- function(
   
   #rate of the positive event in the dataWithProbabilityPrediction aka the test data set
   PRE <- prop.table(table(DWP[["label"]]))[levelPositive] #PRE is rate of the positive event in DPW data.table proxy
-  print(paste("Churn rate in Test Datensatz ist", scales::percent(PRE), sep = " "))
+  print(paste("Positive event rate in your data ist", scales::percent(PRE), sep = " "))
   print(table(DWP$label))
   cat("\n")
   CrossTab <- function(data) with(data, table(label = label))
@@ -60,7 +60,7 @@ liftMe <- function(
     geom_line(aes(x = Quantil, y = Lift, color = "orange"), size = 1) +
     geom_text(aes(label = round(Lift, 2), x = Quantil, y = Lift, color = 'orange'), hjust = -1, size = 2) +
     theme_minimal() +
-    ggtitle("Kumulative Lift") +
+    ggtitle("Cumulative Lift") +
     theme(plot.title = element_text(hjust = 0.5)) +
     theme(legend.position="none")
   print(gg)

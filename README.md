@@ -1,7 +1,7 @@
 # Lift
-calculates and visualises lift as a performance measure for binary classification problems
+Calculates and visualises lift as a performance measure for binary classification problems
 
-The best is to illustrate the the working of the giveMeLift function the an example:
+The following example illustrates the working of the lift function:
 
 ```R
 library(ranger); library(caret)

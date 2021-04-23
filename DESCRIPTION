@@ -1,0 +1,27 @@
+Package: liftscores
+Type: Package
+Title: Calculate and plot uplift from a binary classificatin models
+Version: 0.1.0
+Authors@R: person("Patrikios", email = "Patrikios@users.noreply.github.com", role = c("cre", "aut"))
+Description: Miscalenous functionality for working with binary classification models focusing on extracting lift values and plotting it.
+License: MIT + file LICENSE
+URL: https://github.com/Patrikios/liftr
+BugReports: https://github.com/Patrikios/liftr/issues
+Depends: R (>= 3.5.0)
+Imports: 
+    data.table,
+    curl,
+    ggplot2,
+    scales,
+    caret,
+    ranger
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Encoding: UTF-8
+LazyData: false
+Language: en-US
+RoxygenNote: 7.1.1
+VignetteBuilder: knitr
+Config/testthat/edition: 3

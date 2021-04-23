@@ -1,10 +1,25 @@
-# liftscores
-Calculates and visualises lift as a performance measure for binary classification problems
+---
+title: "Core-functionality"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Core-functionality}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
-The following example illustrates the working of the lift function:
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
-```R
-library(ranger); library(caret)
+```{r setup}
+library(liftscores)
+library(data.table)
+library(ranger)
+library(caret)
+
 data <- fread("https://raw.githubusercontent.com/just4jin/bank-marketing-prediction/master/data/bank_full.csv")
 inx <- createDataPartition(data$y, list = F, p = 0.7)
 train <- data[inx,]
@@ -13,7 +28,7 @@ set.seed(23)
 model_ranger <- ranger(as.factor(y) ~ ., data = train, probability = T)
 pred <- data.table(event = test$y,
                    pred = predictions(predict(model_ranger, test))[, "yes"]
-                   )
+)
 
 calculate_lift(
   dataWithProbabilityPrediction = pred, 
